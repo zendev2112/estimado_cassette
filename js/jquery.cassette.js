@@ -404,6 +404,10 @@
 			// first stop
 			this._stop( true );
 
+			// Immediately update wheel positions to prevent glitch
+			var currentWheelVal = this._getWheelValues( this.cntTime );
+			this._updateWheelValue( currentWheelVal );
+
 			this._setSidesPosStatus( 'middle' );
 
 			// the current time to play is this.cntTime +/- [this.elapsed]
