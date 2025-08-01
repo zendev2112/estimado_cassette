@@ -71,8 +71,8 @@
 
 .vc-tape-wheel-left {
 	left: 18.6%;
-	box-shadow: 0 0 0 25px #000;
-	/* Increased thickness for better visibility */
+	box-shadow: 0 0 0 35px #000;
+	/* Match JavaScript maxTape value for consistent sizing */
 }
 
 .vc-tape-wheel-right {
