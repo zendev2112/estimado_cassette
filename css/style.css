@@ -644,3 +644,13 @@ h2 {
 		bottom: -70px;
 	}
 }
+
+/*
+ PREVENT WHEEL GLITCH - Smooth transitions when stopping animations */
+.vc-tape-wheel {
+	transition: box-shadow 0.1s ease-out;
+}
+
+.vc-tape-wheel div {
+	transition: transform 0.1s ease-out;
+}
