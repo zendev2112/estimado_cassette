@@ -604,11 +604,11 @@ h2 {
 		width: 100%;
 	}
 
-	/* Make cassette smaller to create proper gap with controls */
+	/* Make cassette smaller to fit with controls in landscape */
 	.vc-container {
-		max-width: 45vw;
-		width: 45vw;
-		margin: 0 auto 80px auto;
+		max-width: 55vw;
+		width: 55vw;
+		margin: 0 auto 60px auto;
 		min-height: unset;
 		padding: 0;
 		position: relative;
@@ -618,8 +618,8 @@ h2 {
 	}
 
 	.vc-tape {
-		max-width: 45vw;
-		width: 45vw;
+		max-width: 55vw;
+		width: 55vw;
 		margin: 0 auto;
 		position: relative;
 		left: auto !important;
@@ -627,11 +627,11 @@ h2 {
 		transform: none !important;
 	}
 
-	/* Position controls with proper gap from cassette */
+	/* Position controls closer to cassette */
 	ul.vc-controls {
 		width: 75%;
 		max-width: 350px;
-		bottom: -80px;
+		bottom: -55px;
 		left: 50% !important;
 		transform: translateX(-50%) !important;
 		position: absolute !important;
@@ -647,12 +647,12 @@ h2 {
 		font-size: 0;
 	}
 
-	/* Position volume control with proper gap */
+	/* Position volume control */
 	.vc-volume-wrap {
 		width: 55px;
 		height: 55px;
 		right: 15px;
-		bottom: -80px;
+		bottom: -55px;
 		position: absolute;
 	}
 
