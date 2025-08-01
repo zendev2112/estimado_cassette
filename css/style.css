@@ -647,14 +647,7 @@ h2 {
 		font-size: 0;
 	}
 
-	/* Position volume control */
-	.vc-volume-wrap {
-		width: 55px;
-		height: 55px;
-		right: 15px;
-		bottom: -55px;
-		position: absolute;
-	}
+
 
 	/* Hide header elements to save space */
 	header {
