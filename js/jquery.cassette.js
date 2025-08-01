@@ -404,10 +404,6 @@
 			// first stop
 			this._stop( true );
 
-			// Immediately update wheel positions to prevent glitch
-			var currentWheelVal = this._getWheelValues( this.cntTime );
-			this._updateWheelValue( currentWheelVal );
-
 			this._setSidesPosStatus( 'middle' );
 
 			// the current time to play is this.cntTime +/- [this.elapsed]
@@ -643,6 +639,9 @@
 		},
 		_stopWheels			: function() {
 
+			// Calculate current wheel positions based on current time to prevent glitch
+			var wheelVal = this._getWheelValues( this.cntTime );
+
 			var wheelStyle = {
 				'-webkit-animation'	: 'none',
 				'-moz-animation'	: 'none',
@@ -653,6 +652,9 @@
 
 			this.$wheelLeft.css( wheelStyle );
 			this.$wheelRight.css( wheelStyle );
+
+			// Immediately set the correct wheel positions to prevent visual glitch
+			this._updateWheelValue( wheelVal );
 
 		},
 		// credits: http://www.sitepoint.com/creating-accurate-timers-in-javascript/
