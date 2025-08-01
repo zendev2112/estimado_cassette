@@ -401,22 +401,21 @@
 
 			var posTime	= this.cntTime;
 
+			// Calculate the correct position time BEFORE stopping
+			if( this.lastaction === 'forward' ) {
+				posTime += this.elapsed;
+			}
+			else if( this.lastaction === 'rewind' ) {
+				posTime -= this.elapsed;
+			}
+
+			// Update cntTime BEFORE stopping to ensure _stopWheels uses correct value
+			this.cntTime = posTime;
+
 			// first stop
 			this._stop( true );
 
 			this._setSidesPosStatus( 'middle' );
-
-			// the current time to play is this.cntTime +/- [this.elapsed]
-			if( this.lastaction === 'forward' ) {
-
-				posTime += this.elapsed;
-
-			}
-			else if( this.lastaction === 'rewind' ) {
-
-				posTime -= this.elapsed;
-
-			}
 
 			// check if we have more songs to play on the current side..
 			if( posTime >= this._getSide().current.getDuration() ) {
@@ -433,8 +432,6 @@
 			// and from which point in time within the song we will play
 			var data			= this._getSongInfoByTime( posTime );
 
-			// update cntTime
-			this.cntTime		= posTime;
 			// update timeIterator
 			this.timeIterator	= data.iterator;
 
@@ -639,8 +636,8 @@
 		},
 		_stopWheels			: function() {
 
-			// Calculate current wheel positions based on current time to prevent glitch
-			var wheelVal = this._getWheelValues( this.cntTime );
+			// Get current wheel positions to preserve them when stopping animations
+			var currentWheelVal = this._getWheelValues( this.cntTime );
 
 			var wheelStyle = {
 				'-webkit-animation'	: 'none',
@@ -653,8 +650,8 @@
 			this.$wheelLeft.css( wheelStyle );
 			this.$wheelRight.css( wheelStyle );
 
-			// Immediately set the correct wheel positions to prevent visual glitch
-			this._updateWheelValue( wheelVal );
+			// Immediately restore the correct wheel positions to prevent glitch
+			this._updateWheelValue( currentWheelVal );
 
 		},
 		// credits: http://www.sitepoint.com/creating-accurate-timers-in-javascript/
