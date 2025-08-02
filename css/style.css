@@ -588,85 +588,21 @@ h2 {
 @media screen and (max-width: 768px) and (orientation: landscape) {
 	body {
 		background: #111;
-		padding: 0;
-		margin: 0;
-		overflow-x: hidden;
 	}
 
-	.container {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-		min-height: 100vh;
-		padding: 10px;
-		box-sizing: border-box;
-		width: 100%;
-	}
-
-	/* Make cassette smaller to fit with controls in landscape */
 	.vc-container {
-		max-width: 55vw;
-		width: 55vw;
-		margin: 0 auto 60px auto;
-		min-height: unset;
-		padding: 0;
-		position: relative;
-		left: auto !important;
-		right: auto !important;
-		transform: none !important;
+		max-width: 45vw;
+		width: 45vw;
+		margin: 0 auto 80px auto;
 	}
 
 	.vc-tape {
-		max-width: 55vw;
-		width: 55vw;
-		margin: 0 auto;
-		position: relative;
-		left: auto !important;
-		right: auto !important;
-		transform: none !important;
+		max-width: 45vw;
+		width: 45vw;
 	}
 
-	/* Position controls closer to cassette */
 	ul.vc-controls {
-		width: 75%;
-		max-width: 350px;
-		bottom: -55px;
-		left: 50% !important;
-		transform: translateX(-50%) !important;
-		position: absolute !important;
-		height: 50px;
-		margin-left: auto !important;
-		margin-right: auto !important;
-	}
-
-	ul.vc-controls li {
-		height: 45px;
-		line-height: 45px;
-		min-width: 50px;
-		font-size: 0;
-	}
-
-
-
-	/* Hide header elements to save space */
-	header {
-		display: none;
-	}
-
-	.attribution {
-		display: none;
-	}
-
-	/* Ensure everything fits in viewport */
-	h1,
-	h2 {
-		display: none;
-	}
-
-	/* Remove mobile rotation suggestion in landscape */
-	.mobile-rotate-suggestion {
-		display: none !important;
+		bottom: -80px;
 	}
 }
 
