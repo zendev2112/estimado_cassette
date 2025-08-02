@@ -70,8 +70,6 @@
         '<div class="dust dust-4"></div>' +
         '<div class="dust dust-5"></div>' +
         '</div>' +
-        '<div class="loading-text">PEUGEOT 504</div>' +
-        '<div class="loading-subtext">Estimado Motor</div>' +
         '</div>'
 
       document.body.appendChild(this.overlay)
@@ -150,37 +148,6 @@
         '0% { transform: scale(0.3) translateX(0); opacity: 0; bottom: 15px; }' +
         '20% { opacity: 0.8; }' +
         '100% { transform: scale(2.5) translateX(30px); opacity: 0; bottom: 60px; }' +
-        '}' +
-        '.loading-text {' +
-        'position: absolute;' +
-        'bottom: -50px;' +
-        'left: 50%;' +
-        'transform: translateX(-50%);' +
-        'font-family: "Aldrich", monospace, sans-serif;' +
-        'font-size: 18px;' +
-        'color: #000000;' +
-        'font-weight: bold;' +
-        'text-transform: uppercase;' +
-        'letter-spacing: 3px;' +
-        'text-shadow: 2px 2px 4px rgba(255,255,255,0.8);' +
-        'animation: fadeInOut 3s ease-in-out infinite;' +
-        '}' +
-        '.loading-subtext {' +
-        'position: absolute;' +
-        'bottom: -80px;' +
-        'left: 50%;' +
-        'transform: translateX(-50%);' +
-        'font-family: cursive, "Brush Script MT", serif;' +
-        'font-size: 16px;' +
-        'color: #E3342F;' +
-        'font-style: italic;' +
-        'font-weight: bold;' +
-        'text-shadow: 1px 1px 2px rgba(255,255,255,0.6);' +
-        'animation: fadeInOut 3s ease-in-out infinite 0.5s;' +
-        '}' +
-        '@keyframes fadeInOut {' +
-        '0%, 100% { opacity: 0.4; }' +
-        '50% { opacity: 1; }' +
         '}' +
         '@media screen and (max-width: 768px) {' +
         '.loading-content { height: 150px; }' +
