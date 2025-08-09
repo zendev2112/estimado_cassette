@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Optimizer - Cassette Player</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+
+        .optimization-card {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .file-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 10px 0;
+            padding: 10px;
+            background: #f8f9fa;
+            border-radius: 5px;
+        }
+
+        .size-before {
+            color: #dc3545;
+            font-weight: bold;
+        }
+
+        .size-after {
+            color: #28a745;
+            font-weight: bold;
+        }
+
+        .savings {
+            color: #007bff;
+            font-weight: bold;
+        }
+
+        canvas {
+            border: 1px solid #ddd;
+            margin: 10px 0;
+        }
+
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
+
+        .preview {
+            max-width: 200px;
+            max-height: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>🎵 Cassette Player - Image Optimization</h1>
+
+    <div class="optimization-card">
+        <h2>📊 Current App Size Analysis</h2>
+        <div class="file-info">
+            <span>P504.png (Loading screen car)</span>
+            <span class="size-before">20MB</span>
+        </div>
+        <div class="file-info">
+            <span>bg-2.png (Background texture)</span>
+            <span class="size-before">5.9MB</span>
+        </div>
+        <div class="file-info">
+            <span>Auto.png (Unused?)</span>
+            <span class="size-before">3.9MB</span>
+        </div>
+        <div class="file-info">
+            <span><strong>Total Images:</strong></span>
+            <span class="size-before">~30MB</span>
+        </div>
+    </div>
+
+    <div class="optimization-card">
+        <h2>🎯 Optimization Strategy</h2>
+        <h3>1. P504.png Optimization</h3>
+        <p><strong>Current:</strong> 20MB PNG</p>
+        <p><strong>Target:</strong> ~200KB WebP/JPEG</p>
+        <p><strong>Method:</strong> Resize to max 800px width, compress quality to 85%</p>
+
+        <h3>2. bg-2.png Optimization</h3>
+        <p><strong>Current:</strong> 5.9MB PNG</p>
+        <p><strong>Target:</strong> ~100KB WebP/JPEG</p>
+        <p><strong>Method:</strong> Resize to max 1200px, compress quality to 80%</p>
+
+        <h3>3. Remove Unused Assets</h3>
+        <p>Delete Auto.png if not used (saves 3.9MB)</p>
+
+        <h3>4. Audio Optimization</h3>
+        <p>Keep only MP3 format, remove OGG duplicates (saves ~12MB)</p>
+    </div>
+
+    <div class="optimization-card">
+        <h2>📈 Expected Results</h2>
+        <div class="file-info">
+            <span>Images: 30MB → 2MB</span>
+            <span class="savings">Saves 28MB (93%)</span>
+        </div>
+        <div class="file-info">
+            <span>Audio: 25MB → 13MB</span>
+            <span class="savings">Saves 12MB (48%)</span>
+        </div>
+        <div class="file-info">
+            <span><strong>Total App: 55MB → 15MB</strong></span>
+            <span class="savings">Saves 40MB (73%)</span>
+        </div>
+    </div>
+
+    <div class="optimization-card">
+        <h2>🛠️ Manual Optimization Instructions</h2>
+        <ol>
+            <li><strong>P504.png:</strong>
+                <ul>
+                    <li>Open in image editor (Photoshop, GIMP, etc.)</li>
+                    <li>Resize to 800px width (maintain aspect ratio)</li>
+                    <li>Save as JPEG with 85% quality</li>
+                    <li>Or use online tools like TinyPNG, Squoosh.app</li>
+                </ul>
+            </li>
+            <li><strong>bg-2.png:</strong>
+                <ul>
+                    <li>Resize to 1200px width maximum</li>
+                    <li>Save as JPEG with 80% quality</li>
+                    <li>Consider WebP format for even better compression</li>
+                </ul>
+            </li>
+            <li><strong>Audio files:</strong>
+                <ul>
+                    <li>Delete all .ogg files (keep only .mp3)</li>
+                    <li>Consider reducing MP3 bitrate to 128kbps</li>
+                </ul>
+            </li>
+        </ol>
+    </div>
+
+    <div class="optimization-card">
+        <h2>🚀 Quick Commands</h2>
+        <p>If you have ImageMagick installed, use these commands:</p>
+        <pre style="background: #f8f9fa; padding: 15px; border-radius: 5px; overflow-x: auto;">
+# Optimize P504.png
+convert images/P504.png -resize 800x -quality 85 images/P504_optimized.jpg
+
+# Optimize bg-2.png  
+convert images/bg-2.png -resize 1200x -quality 80 images/bg-2_optimized.jpg
+
+# Remove OGG files
+rm songs/*.ogg sounds/*.ogg
+        </pre>
+    </div>
+
+    <script>
+        // Add some interactive elements
+        console.log('🎵 Image Optimization Guide Loaded');
+        console.log('Current total app size: ~55MB');
+        console.log('Target app size: ~15MB');
+        console.log('Expected savings: 73%');
+    </script>
+</body>
+
+</html>
