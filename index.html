@@ -22,84 +22,11 @@
 	<link rel="stylesheet" type="text/css" href="css/playericons.css?v=2024081101" />
 	<script type="text/javascript" src="js/modernizr.custom.69142.js"></script>
 
-	<!-- Add mobile-specific styles -->
-	<style>
-		@media screen and (max-width: 768px) {
 
-			/* Encourage landscape viewing on mobile */
-			.mobile-rotate-suggestion {
-				display: block;
-				background: rgba(0, 0, 0, 0.9);
-				color: #fff;
-				text-align: center;
-				padding: 15px 10px;
-				position: fixed;
-				top: 0;
-				left: 0;
-				right: 0;
-				z-index: 1000;
-				font-size: 14px;
-				font-family: 'Aldrich', sans-serif;
-				text-transform: uppercase;
-				letter-spacing: 1px;
-				border-bottom: 2px solid #444;
-				animation: fadeInOut 6s ease-in-out;
-			}
-		}
-
-		@media screen and (max-width: 768px) and (orientation: landscape) {
-			.mobile-rotate-suggestion {
-				display: none;
-			}
-		}
-
-		@media screen and (min-width: 769px) {
-			.mobile-rotate-suggestion {
-				display: none;
-			}
-		}
-
-		@keyframes fadeInOut {
-			0% {
-				opacity: 0;
-				transform: translateY(-100%);
-			}
-
-			15% {
-				opacity: 1;
-				transform: translateY(0);
-			}
-
-			85% {
-				opacity: 1;
-				transform: translateY(0);
-			}
-
-			100% {
-				opacity: 0;
-				transform: translateY(-100%);
-			}
-		}
-
-		/* Ensure body adapts to mobile */
-		@media screen and (max-width: 768px) {
-			body {
-				padding-top: 60px;
-				transition: padding-top 0.3s ease;
-			}
-
-			body.landscape-ready {
-				padding-top: 0;
-			}
-		}
-	</style>
 </head>
 
 <body>
-	<!-- Mobile rotation suggestion -->
-	<div class="mobile-rotate-suggestion">
-		📱 Rotate your device horizontally for the best vintage cassette experience!
-	</div>
+
 
 	<div class="container">
 
@@ -147,41 +74,7 @@
 			// Initialize the cassette player
 			$('#vc-container').cassette();
 
-			// Handle mobile orientation and user experience
-			function handleMobileExperience() {
-				const isMobile = window.innerWidth <= 768;
-				const isLandscape = window.innerWidth > window.innerHeight;
 
-				if (isMobile) {
-					// Add mobile-specific class for styling
-					$('body').addClass('mobile-device');
-
-					// Hide rotation suggestion in landscape or after timeout
-					if (isLandscape) {
-						$('body').addClass('landscape-ready');
-						$('.mobile-rotate-suggestion').fadeOut(500);
-					} else {
-						$('body').removeClass('landscape-ready');
-					}
-				} else {
-					$('body').removeClass('mobile-device landscape-ready');
-					$('.mobile-rotate-suggestion').hide();
-				}
-			}
-
-			// Initial mobile experience setup
-			handleMobileExperience();
-
-			// Handle orientation changes
-			$(window).on('orientationchange resize', function () {
-				setTimeout(handleMobileExperience, 100); // Small delay for orientation change
-			});
-
-			// Auto-hide rotation suggestion after 6 seconds
-			setTimeout(function () {
-				$('.mobile-rotate-suggestion').fadeOut(1000);
-				$('body').addClass('landscape-ready');
-			}, 6000);
 
 			// Add touch event enhancements for mobile
 			if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {

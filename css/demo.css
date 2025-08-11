@@ -16,7 +16,9 @@
 
 body {
 	font-family: Cambria, Georgia, serif;
-	background: #b6b6b6 url(../images/background.jpg) fixed no-repeat top center;
+	background: #b6b6b6 url(../images/bg.jpg) fixed center center;
+	background-size: cover;
+	min-height: 100vh;
 	font-weight: 400;
 	font-size: 15px;
 	color: #333;
@@ -161,4 +163,27 @@ a:hover {
 .no-csstransforms3d .support-note span.no-csstransforms3d,
 .no-csstransitions .support-note span.no-csstransitions {
 	display: block;
+}
+
+/*
+ Mobile background optimizations */
+@media screen and (max-width: 768px) {
+	body {
+		background-attachment: scroll;
+		/* Fixed backgrounds can cause issues on mobile */
+		background-size: cover;
+		background-position: center center;
+		background-repeat: no-repeat;
+	}
+}
+
+/* Ensure full coverage on all screen sizes */
+html {
+	min-height: 100vh;
+	background: #b6b6b6;
+}
+
+html,
+body {
+	height: 100%;
 }
