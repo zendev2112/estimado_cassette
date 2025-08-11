@@ -23,7 +23,7 @@
         backgroundColor:
           options.backgroundColor ||
           'linear-gradient(180deg, #AEE4FA 0%, #8BC6E8 100%)',
-        carImage: options.carImage || 'images/p504-light.svg',
+        carImage: options.carImage || 'images/P504.png',
       }
 
       this.createOverlay(config)
