@@ -126,14 +126,6 @@
 		font-size: clamp(10px, 1.8vw, 14px);
 	}
 
-	/* Reduce buttons row size to match portrait style */
-	ul.vc-controls {
-		width: 60%;
-		max-width: 280px;
-		height: 45px;
-		padding: 4px;
-	}
-
 	ul.vc-controls li {
 		height: 35px;
 		line-height: 35px;
@@ -421,8 +413,8 @@ h2 {
 	/* Add space for controls below cassette */
 }
 
-/* MOBILE-FIRST: Force horizontal orientation feel */
-@media screen and (max-width: 768px) {
+/* MOBILE-FIRST: Force horizontal orientation feel - PORTRAIT ONLY */
+@media screen and (max-width: 768px) and (orientation: portrait) {
 	.codrops-top {
 		display: none;
 	}
@@ -571,23 +563,9 @@ h2 {
 	}
 }
 
-/* MOBILE PORTRAIT - Fix volume position */
-@media screen and (max-width: 768px) and (orientation: portrait) {
-	.vc-volume-wrap {
-		width: 50px;
-		height: 50px;
-		right: 5px;
-		bottom: -120px;
-		/* Below controls */
-	}
 
-	ul.vc-controls {
-		width: 80%;
-		bottom: -80px;
-	}
-}
 
-/* MOBILE LANDSCAPE - Optimized for landscape viewing */
+/* MOBILE LANDSCAPE - Optimized for landscape viewing - FINAL OVERRIDE */
 @media screen and (max-width: 768px) and (orientation: landscape) {
 	body {
 		background: #111;
@@ -604,16 +582,20 @@ h2 {
 		width: 45vw;
 	}
 
+	/* FORCE BUTTON ROW TO MATCH CASSETTE WIDTH AND CENTER */
 	ul.vc-controls {
-		width: 45vw;
-		max-width: 45vw;
-		bottom: -80px;
-		left: 50%;
-		transform: translateX(-50%);
+		width: 45vw !important;
+		max-width: 45vw !important;
+		bottom: -80px !important;
+		left: 50% !important;
+		transform: translateX(-50%) !important;
+		position: absolute !important;
+		margin-left: 0 !important;
+		margin-right: 0 !important;
 	}
 
 	.vc-volume-wrap {
-		right: calc(50% - 22.5vw - 50px);
+		display: none !important;
 	}
 }
 
