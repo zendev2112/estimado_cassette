@@ -413,8 +413,8 @@ h2 {
 	/* Add space for controls below cassette */
 }
 
-/* MOBILE-FIRST: Force horizontal orientation feel - PORTRAIT ONLY */
-@media screen and (max-width: 768px) and (orientation: portrait) {
+/* MOBILE-FIRST: Force horizontal orientation feel */
+@media screen and (max-width: 768px) {
 	.codrops-top {
 		display: none;
 	}
@@ -582,10 +582,10 @@ h2 {
 		width: 45vw;
 	}
 
-	/* FORCE BUTTON ROW TO MATCH CASSETTE WIDTH AND CENTER */
+	/* FORCE BUTTON ROW TO CENTER WITHIN CONTAINER */
 	ul.vc-controls {
-		width: 45vw !important;
-		max-width: 45vw !important;
+		width: 70% !important;
+		max-width: none !important;
 		bottom: -80px !important;
 		left: 50% !important;
 		transform: translateX(-50%) !important;
