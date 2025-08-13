@@ -125,6 +125,25 @@
 	.vc-tape-front span {
 		font-size: clamp(10px, 1.8vw, 14px);
 	}
+
+	/* Reduce buttons row size to match portrait style */
+	ul.vc-controls {
+		width: 60%;
+		max-width: 280px;
+		height: 45px;
+		padding: 4px;
+	}
+
+	ul.vc-controls li {
+		height: 35px;
+		line-height: 35px;
+		min-width: 45px;
+		margin: 0 1px;
+	}
+
+	ul.vc-controls li span:before {
+		font-size: 14px;
+	}
 }
 
 /* Controls list - FIXED POSITIONING */
