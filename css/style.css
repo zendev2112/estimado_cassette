@@ -117,7 +117,14 @@
 	left: 11.4%;
 	font-family: Arial;
 	font-weight: bold;
-	font-size: clamp(12px, 3.4vw, 20px);
+	font-size: clamp(12px, 2.5vw, 18px);
+}
+
+/* Fix A and B indicators in landscape mode */
+@media screen and (max-width: 768px) and (orientation: landscape) {
+	.vc-tape-front span {
+		font-size: clamp(10px, 1.8vw, 14px);
+	}
 }
 
 /* Controls list - FIXED POSITIONING */
