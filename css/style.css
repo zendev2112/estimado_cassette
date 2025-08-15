@@ -3,30 +3,56 @@ body {
 	padding: 0;
 	overflow: hidden;
 	background: #000;
+	font-family: Arial, sans-serif;
+}
+
+/* Dashboard Integration Styles */
+.dashboard-container {
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: #000;
+	position: fixed;
+	top: 0;
+	left: 0;
+}
+
+.dashboard-background {
+	width: 100%;
+	height: 100%;
+	position: relative;
+	background: url('../images/dashboard.png') no-repeat center center;
+	background-size: cover;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 /* Mobile-first approach - base styles for mobile */
 .container {
-	max-width: 100%;
-	padding: 10px;
-	box-sizing: border-box;
+	position: relative;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 /* Main container - responsive */
 .vc-container {
-	text-align: center;
+	/* Position cassette in the dashboard stereo slot */
+	position: absolute;
+	width: 280px;
+	/* Fixed width for consistency */
 	height: auto;
-	min-height: 300px;
-	margin-bottom: 20px;
-	position: relative;
-	width: 100%;
-	max-width: 600px;
-	margin: 0 auto 20px auto;
-	background: url(../images/bg-2_optimized.jpg) no-repeat center center;
-	background-size: cover;
-	border-radius: 15px;
-	padding: 20px;
-	box-sizing: border-box;
+	z-index: 10;
+	/* Remove any conflicting background or border styles */
+	background: none !important;
+	border-radius: 0 !important;
+	padding: 0 !important;
+	margin: 0 !important;
 }
 
 /* Tape elements - make responsive */
@@ -40,9 +66,9 @@ body {
 
 .vc-tape {
 	width: 100%;
-	max-width: 586px;
 	height: auto;
 	aspect-ratio: 586/379;
+	/* Maintain cassette proportions */
 	margin: 20px auto 0;
 	position: relative;
 	-webkit-transition: all .4s ease-in-out;
@@ -145,42 +171,25 @@ body {
 	}
 }
 
-/* Controls list - FIXED POSITIONING */
+/* Controls positioning */
 ul.vc-controls {
-	list-style: none;
-	padding: 8px;
-	width: 70%;
-	/* Reduced from 90% */
-	max-width: 350px;
-	/* Reduced from 440px */
 	position: absolute;
-	bottom: -80px;
-	/* Moved below the cassette */
+	bottom: -60px;
+	/* Position below cassette */
 	left: 50%;
 	transform: translateX(-50%);
+	width: 300px;
+	max-width: none;
+	background: rgba(255, 255, 255, 0.9);
+	border-radius: 8px;
+	padding: 6px;
+	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+	list-style: none;
 	margin: 0;
-	background: url(../images/bg-2_optimized.jpg), -moz-linear-gradient(top, rgba(170, 170, 170, 0.35) 0%, rgba(255, 255, 255, 0.44) 50%, rgba(255, 255, 255, 0.53) 100%);
-	background: url(../images/bg-2_optimized.jpg), -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(170, 170, 170, 0.35)), color-stop(50%, rgba(255, 255, 255, 0.44)), color-stop(100%, rgba(255, 255, 255, 0.53)));
-	background: url(../images/bg-2_optimized.jpg), -webkit-linear-gradient(top, rgba(170, 170, 170, 0.35) 0%, rgba(255, 255, 255, 0.44) 50%, rgba(255, 255, 255, 0.53) 100%);
-	background: url(../images/bg-2_optimized.jpg), -o-linear-gradient(top, rgba(170, 170, 170, 0.35) 0%, rgba(255, 255, 255, 0.44) 50%, rgba(255, 255, 255, 0.53) 100%);
-	background: url(../images/bg-2_optimized.jpg), -ms-linear-gradient(top, rgba(170, 170, 170, 0.35) 0%, rgba(255, 255, 255, 0.44) 50%, rgba(255, 255, 255, 0.53) 100%);
-	background: url(../images/bg-2_optimized.jpg), linear-gradient(to bottom, rgba(170, 170, 170, 0.35) 0%, rgba(255, 255, 255, 0.44) 50%, rgba(255, 255, 255, 0.53) 100%);
-	background-size: cover, auto;
-	background-position: center, center;
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#59aaaaaa', endColorstr='#87ffffff', GradientType=0);
-	border: 1px solid rgba(0, 0, 0, 0.1);
-	border-bottom-color: rgba(255, 255, 255, 0.6);
 	height: 54px;
-	box-shadow:
-		inset 0 1px 0px rgba(0, 0, 0, 0.05),
-		0 1px 0 rgba(255, 255, 255, 0.8),
-		0 -1px 0 rgba(255, 255, 255, 0.4),
-		inset 0 2px 19px rgba(0, 0, 0, 0.05),
-		0 2px 1px rgba(0, 0, 0, 0.06);
 	-webkit-box-sizing: content-box;
 	-moz-box-sizing: content-box;
 	box-sizing: content-box;
-	border-radius: 12px;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -194,7 +203,7 @@ ul.vc-controls li {
 	flex: 1;
 	min-width: 50px;
 	height: 40px;
-	margin: 0;
+	margin: 0 2px;
 	cursor: pointer;
 	background: #ddd url(../images/metal.jpg) no-repeat center top;
 	box-shadow:
@@ -241,71 +250,6 @@ ul.vc-controls li span:before {
 	position: relative;
 	z-index: 10;
 	/* Don't override the existing icon font or content */
-}
-
-/* Controls list items - responsive */
-ul.vc-controls li {
-	position: relative;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex: 1;
-	min-width: 60px;
-	height: 50px;
-	line-height: 50px;
-	text-align: center;
-	padding: 5px;
-	margin: 0 1px;
-	cursor: pointer;
-	background: #ddd url(../images/metal.jpg) no-repeat center top;
-	box-shadow:
-		inset 0 0 0 1px rgba(0, 0, 0, 0.2),
-		inset 0 0 1px 2px rgba(255, 255, 255, 0.9),
-		inset 0 -6px 5px rgba(0, 0, 0, 0.1),
-		0 6px 7px rgba(0, 0, 0, 0.3),
-		0 4px 1px rgba(0, 0, 0, 0.5);
-	-webkit-touch-callout: none;
-	-webkit-user-select: none;
-	-khtml-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-	touch-action: manipulation;
-	border-radius: 4px;
-	font-family: 'Aldrich', sans-serif;
-	font-size: 0;
-	/* Hide text */
-	font-weight: 300;
-	text-transform: uppercase;
-	letter-spacing: 1px;
-	color: #666;
-	text-shadow: 0 1px 1px rgba(255, 255, 255, 0.8);
-}
-
-ul.vc-controls li span {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	width: 100%;
-	height: 100%;
-	font-size: 0;
-	/* Hide text */
-}
-
-ul.vc-controls li span:before {
-	font-size: 2em;
-	/* Make icon large and centered */
-	line-height: 1;
-	display: block;
-	margin: 0 auto;
-	font-family: 'playericons', Arial, sans-serif;
-	font-style: normal;
-	font-weight: normal;
-	text-transform: none;
-	speak: none;
-	text-align: center;
-	color: #444;
-	text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.9);
 }
 
 ul.vc-controls li:first-child {
@@ -420,25 +364,51 @@ h2 {
 	/* Add space for controls below cassette */
 }
 
-/* MOBILE-FIRST: Force horizontal orientation feel */
-@media screen and (max-width: 768px) {
-	.codrops-top {
-		display: none;
+/* Desktop - Landscape orientation */
+@media screen and (min-width: 1024px) {
+	.vc-container {
+		width: 320px;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
 	}
 
-	body {
-		background: #1a1a1a;
-		/* Darker background for mobile vintage feel */
+	ul.vc-controls {
+		bottom: -70px;
+		width: 320px;
 	}
+}
 
-	.container {
-		padding: 5px;
+/* Mobile Portrait - Rotate dashboard */
+@media screen and (max-width: 768px) and (orientation: portrait) {
+	.dashboard-background {
+		background-size: contain;
+		background-position: center center;
 	}
 
 	.vc-container {
-		min-height: 250px;
-		margin-bottom: 120px;
-		/* Space for controls */
+		width: 70vw;
+		max-width: 300px;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+
+	ul.vc-controls {
+		bottom: -80px;
+		width: 80vw;
+		max-width: 320px;
+		height: 50px;
+		padding: 8px;
+	}
+
+	ul.vc-controls li {
+		height: 45px;
+		min-width: 55px;
+	}
+
+	.codrops-top {
+		display: none;
 	}
 
 	/* Make cassette feel more horizontal/landscape on mobile */
@@ -447,28 +417,66 @@ h2 {
 		/* Keep it horizontal */
 		max-width: 95vw;
 	}
+}
 
-	.vc-volume-wrap {
-		width: 60px;
-		height: 60px;
-		right: 5px;
+/* Mobile Landscape - Horizontal layout */
+@media screen and (max-width: 768px) and (orientation: landscape) {
+	.dashboard-background {
+		background-size: cover;
+	}
+
+	.vc-container {
+		width: 35vw;
+		max-width: 280px;
+		min-width: 200px;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
 	}
 
 	ul.vc-controls {
-		width: 95%;
-		max-width: none;
-		bottom: -100px;
+		bottom: -60px;
+		width: 40vw;
+		max-width: 300px;
+		height: 45px;
 	}
 
 	ul.vc-controls li {
-		min-width: 50px;
-		height: 45px;
-		line-height: 45px;
-		font-size: 8px;
+		height: 38px;
+		min-width: 48px;
+		font-size: 12px;
+	}
+
+	/* FORCE BUTTON ROW TO CENTER WITHIN CONTAINER */
+	ul.vc-controls {
+		width: 70% !important;
+		max-width: none !important;
+		bottom: -80px !important;
+		left: 50% !important;
+		transform: translateX(-50%) !important;
+		position: absolute !important;
+		margin-left: 0 !important;
+		margin-right: 0 !important;
 	}
 }
 
+/* Very small screens */
 @media screen and (max-width: 480px) {
+	.vc-container {
+		width: 75vw;
+		max-width: 280px;
+	}
+
+	ul.vc-controls {
+		width: 85vw;
+		height: 48px;
+	}
+
+	ul.vc-controls li {
+		height: 42px;
+		min-width: 50px;
+	}
+
 	.vc-volume-wrap {
 		width: 50px;
 		height: 50px;
@@ -507,7 +515,11 @@ h2 {
 	}
 }
 
-
+/*
+ PREVENT WHEEL GLITCH - Smooth transitions when stopping animations */
+.vc-tape-wheel {
+	transition: box-shadow 0.1s ease-out;
+}
 
 /* Animation keyframes */
 @-webkit-keyframes rotateLeft {
@@ -567,144 +579,5 @@ h2 {
 
 	100% {
 		transform: rotate(360deg) translateZ(-1px);
-	}
-}
-
-
-
-/* MOBILE LANDSCAPE - Optimized for landscape viewing - FINAL OVERRIDE */
-@media screen and (max-width: 768px) and (orientation: landscape) {
-	body {
-		background: #111;
-	}
-
-	.vc-container {
-		max-width: 45vw;
-		width: 45vw;
-		margin: 0 auto 80px auto;
-	}
-
-	.vc-tape {
-		max-width: 45vw;
-		width: 45vw;
-	}
-
-	/* FORCE BUTTON ROW TO CENTER WITHIN CONTAINER */
-	ul.vc-controls {
-		width: 70% !important;
-		max-width: none !important;
-		bottom: -80px !important;
-		left: 50% !important;
-		transform: translateX(-50%) !important;
-		position: absolute !important;
-		margin-left: 0 !important;
-		margin-right: 0 !important;
-	}
-
-	.vc-volume-wrap {
-		display: none !important;
-	}
-}
-
-/*
- PREVENT WHEEL GLITCH - Smooth transitions when stopping animations */
-.vc-tape-wheel {
-	transition: box-shadow 0.1s ease-out;
-}
-
-.vc-tape-wheel div {
-	transition: transform 0.1s ease-out;
-}
-
-/* Dashboard Integration Styles */
-.dashboard-container {
-	width: 100vw;
-	height: 100vh;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	background: #000;
-	position: fixed;
-	top: 0;
-	left: 0;
-}
-
-.dashboard-background {
-	/* Maintain dashboard aspect ratio (adjust based on your image) */
-	width: 100%;
-	max-width: 1200px;
-	aspect-ratio: 16/9;
-	/* Adjust this to match your dashboard image ratio */
-	position: relative;
-	background: url('../images/dashboard.png') no-repeat center center;
-	background-size: contain;
-}
-
-.container {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-}
-
-.vc-container {
-	/* Position cassette in the dashboard cutout */
-	position: absolute;
-	top: 45%;
-	/* Adjust these percentages to align with your dashboard cutout */
-	left: 50%;
-	transform: translate(-50%, -50%);
-
-	/* Scale cassette to fit dashboard proportionally */
-	width: 25%;
-	/* Adjust to match dashboard cutout size */
-	max-width: 400px;
-	min-width: 280px;
-}
-
-/* Desktop adjustments */
-@media screen and (min-width: 1024px) {
-	.dashboard-background {
-		aspect-ratio: 16/10;
-	}
-
-	.vc-container {
-		width: 20%;
-		top: 48%;
-	}
-}
-
-/* Mobile Portrait */
-@media screen and (max-width: 768px) and (orientation: portrait) {
-	.dashboard-background {
-		aspect-ratio: 9/16;
-		/* Rotate dashboard for portrait */
-		transform: rotate(90deg);
-		width: 100vh;
-		height: 100vw;
-	}
-
-	.vc-container {
-		width: 35%;
-		top: 50%;
-		transform: translate(-50%, -50%) rotate(-90deg);
-	}
-}
-
-/* Mobile Landscape */
-@media screen and (max-width: 768px) and (orientation: landscape) {
-	.dashboard-background {
-		aspect-ratio: 16/9;
-		width: 100vw;
-		height: auto;
-	}
-
-	.vc-container {
-		width: 30%;
-		top: 50%;
 	}
 }
