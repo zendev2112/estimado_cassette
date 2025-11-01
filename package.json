@@ -1,0 +1,24 @@
+{
+  "name": "cassetteplayer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zendev2112/estimado_cassette.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/zendev2112/estimado_cassette/issues"
+  },
+  "homepage": "https://github.com/zendev2112/estimado_cassette#readme",
+  "dependencies": {
+    "simplex-noise": "^4.0.3"
+  }
+}
