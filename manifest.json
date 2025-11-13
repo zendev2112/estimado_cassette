@@ -6,7 +6,7 @@
   "scope": "/",
   "display": "standalone",
   "orientation": "portrait-primary",
-  "background_color": "#2a1810",
+  "background_color": "#AEE4FA",
   "theme_color": "#d4a574",
   "icons": [
     {
@@ -20,6 +20,22 @@
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "images/P504.webp",
+      "sizes": "540x720",
+      "type": "image/webp",
+      "form_factor": "narrow",
+      "purpose": "any"
+    },
+    {
+      "src": "images/P504.png",
+      "sizes": "540x720",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "purpose": "any"
     }
   ]
 }
