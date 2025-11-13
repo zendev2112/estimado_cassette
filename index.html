@@ -358,6 +358,10 @@
 			border-radius: 8px;
 			transition: opacity 0.4s ease, transform 0.3s ease;
 			cursor: pointer;
+			pointer-events: auto;
+			-webkit-user-select: none;
+			user-select: none;
+			-webkit-touch-callout: none;
 		}
 
 		/* Car icon inside overlay */
@@ -371,8 +375,8 @@
 		}
 
 		.cafecito-car-icon img {
-			max-width: 80%;
-			max-height: 80%;
+			max-width: 90%;
+			max-height: 90%;
 			width: auto;
 			height: auto;
 			display: block;
@@ -577,13 +581,33 @@
 	</style>
 	<script>
 		// Handle click/tap to reveal cafecito button
-		$('.cafecito-link').on('click touchstart', function (e) {
+		$('.cafecito-link').on('click', function (e) {
 			e.preventDefault();
+			e.stopPropagation();
 			$(this).addClass('clicked');
 
+			// Open cafecito link immediately
+			window.open('https://cafecito.app/zetade', '_blank');
+
+			// Revert back to car button after 5 seconds
 			setTimeout(() => {
-				window.open('https://cafecito.app/zetade', '_blank');
-			}, 400);
+				$('.cafecito-link').removeClass('clicked');
+			}, 5000);
+		});
+
+		// Mobile touch handler
+		$('.cafecito-car-overlay').on('touchend', function (e) {
+			e.preventDefault();
+			e.stopPropagation();
+			$('.cafecito-link').addClass('clicked');
+
+			// Open cafecito link immediately
+			window.open('https://cafecito.app/zetade', '_blank');
+
+			// Revert back to car button after 5 seconds
+			setTimeout(() => {
+				$('.cafecito-link').removeClass('clicked');
+			}, 5000);
 		});
 	</script>
 </body>
