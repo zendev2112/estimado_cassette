@@ -13,10 +13,15 @@
 	<meta name="author" content="ESTIMADO MATÍAS" />
 
 	<!-- PWA Meta Tags -->
-	<meta name="theme-color" content="#d4a574">
+	<meta name="theme-color" content="#AEE4FA">
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 	<meta name="apple-mobile-web-app-title" content="PEUGEOT 504">
+	<meta name="mobile-web-app-capable" content="yes">
+
+	<!-- Apple Splash Screens - Match your loading screen color -->
+	<link rel="apple-touch-startup-image" href="images/icon-512x512.png">
+
 	<link rel="apple-touch-icon" href="images/icon-192x192.png">
 	<link rel="icon" type="image/png" sizes="192x192" href="images/icon-192x192.png">
 	<link rel="icon" type="image/png" sizes="512x512" href="images/icon-512x512.png">
@@ -52,6 +57,16 @@
 	<link rel="stylesheet" type="text/css" href="css/playericons.css?v=2024081101" />
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 	<script type="text/javascript" src="js/modernizr.custom.69142.js"></script>
+
+	<style>
+		/* Hide default splash screen immediately */
+		html,
+		body {
+			background-color: #AEE4FA !important;
+			margin: 0;
+			padding: 0;
+		}
+	</style>
 </head>
 
 <body>
