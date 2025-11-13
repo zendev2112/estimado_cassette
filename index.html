@@ -408,6 +408,60 @@
 				height: auto;
 			}
 		}
+
+		/* FORCE PWA Landscape Responsiveness */
+		@media screen and (orientation: landscape) {
+			body {
+				height: auto !important;
+				min-height: 100vh !important;
+				overflow-y: auto !important;
+			}
+
+			.container {
+				height: auto !important;
+				min-height: 100vh !important;
+				overflow: visible !important;
+			}
+
+			.vc-container {
+				position: relative !important;
+				height: auto !important;
+			}
+
+			.vc-tape-wrapper {
+				position: relative !important;
+				height: auto !important;
+			}
+		}
+
+		/* Extra small landscape screens (PWA) */
+		@media screen and (orientation: landscape) and (max-height: 500px) {
+			.vc-container {
+				transform: scale(0.8) !important;
+				margin-bottom: 20px !important;
+			}
+
+			.social-wrapper {
+				padding: 20px 10px 10px 10px !important;
+				gap: 10px !important;
+			}
+
+			.social-link {
+				width: 35px !important;
+				height: 35px !important;
+				font-size: 16px !important;
+			}
+
+			.cafecito-wrapper {
+				padding: 10px 10px 10px 10px !important;
+				margin-top: 10px !important;
+			}
+
+			.cafecito-link {
+				padding: 2px !important;
+				max-width: 120px !important;
+			}
+		}
 	</style>
 </body>
 
