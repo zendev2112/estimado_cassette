@@ -2,19 +2,49 @@
 <html lang="en">
 
 <head>
-	<title>Old School Cassette Player with HTML5 Audio</title>
+	<title>ESTIMADO MATÍAS | PEUGEOT 504</title>
 	<meta charset="UTF-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-	<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-	<meta http-equiv="Pragma" content="no-cache">
-	<meta http-equiv="Expires" content="0">
 	<meta name="description"
-		content="Old School Cassette Player with HTML5 Audio: Vintage format meets modern web tech: an HTML5 audio player with realistic controls" />
+		content="ESTIMADO MATÍAS - Vintage Cassette Player tribute to PEUGEOT 504. Interactive HTML5 audio player with realistic retro controls, social media links, and support for your music." />
 	<meta name="keywords"
-		content="cassette, html5, audio, player, css3, buttons, sounds, vintage, old school, javascript, jquery" />
-	<meta name="author" content="Codrops" />
-	<link rel="shortcut icon" href="../favicon.ico">
+		content="ESTIMADO MATÍAS, PEUGEOT 504, cassette player, HTML5 audio, vintage, retro, interactive player, music" />
+	<meta name="author" content="ESTIMADO MATÍAS" />
+
+	<!-- PWA Meta Tags -->
+	<meta name="theme-color" content="#d4a574">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+	<meta name="apple-mobile-web-app-title" content="PEUGEOT 504">
+	<link rel="apple-touch-icon" href="images/icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="192x192" href="images/icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="512x512" href="images/icon-512x512.png">
+	<link rel="manifest" href="manifest.json">
+
+	<!-- Open Graph (Facebook, LinkedIn, WhatsApp) -->
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content="ESTIMADO MATÍAS | PEUGEOT 504 Cassette Player" />
+	<meta property="og:description"
+		content="Vintage Cassette Player tribute to PEUGEOT 504. Interactive HTML5 audio player with realistic retro controls." />
+	<meta property="og:url" content="https://estimadomatias.vercel.app/" />
+	<meta property="og:image" content="https://estimadomatias.vercel.app/images/og-image-1200x630.png" />
+	<meta property="og:site_name" content="ESTIMADO MATÍAS" />
+
+	<!-- Twitter Card -->
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:title" content="ESTIMADO MATÍAS | PEUGEOT 504 Cassette Player" />
+	<meta name="twitter:description"
+		content="Vintage Cassette Player tribute to PEUGEOT 504. Interactive HTML5 audio player with realistic retro controls." />
+	<meta name="twitter:image" content="https://estimadomatias.vercel.app/images/twitter-image-1200x630.png" />
+
+	<!-- Additional SEO -->
+	<meta name="robots" content="index, follow" />
+	<meta name="language" content="Spanish,English" />
+	<link rel="canonical" content="https://estimadomatias.vercel.app/" />
+
+	<link rel="shortcut icon" href="favicon.ico">
+	<link rel="icon" type="image/png" sizes="32x32" href="images/favicon.png">
 	<link rel="stylesheet" type="text/css" href="css/demo.css?v=2024081101" />
 	<link rel="stylesheet" type="text/css" href="css/style.css?v=2024081101" />
 	<link rel="stylesheet" type="text/css" href="css/knobKnob.css?v=2024081101" />
@@ -22,20 +52,11 @@
 	<link rel="stylesheet" type="text/css" href="css/playericons.css?v=2024081101" />
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 	<script type="text/javascript" src="js/modernizr.custom.69142.js"></script>
-
-
 </head>
 
 <body>
-
-
 	<div class="container">
-
-
-
-		<header>
-
-		</header>
+		<header></header>
 
 		<div id="vc-container" class="vc-container">
 			<div class="vc-tape-wrapper">
@@ -57,7 +78,7 @@
 				</div>
 			</div>
 			<div class="vc-loader"></div>
-		</div><!-- //vc-container -->
+		</div>
 
 		<div class="social-wrapper">
 			<a href="https://www.youtube.com" rel="noopener" target="_blank" class="social-link" title="YouTube">
@@ -80,27 +101,20 @@
 					src="https://cdn.cafecito.app/imgs/buttons/button_5.png"
 					alt="Invitame un café en cafecito.app" /></a>
 		</div>
-
-	</div><!-- //container -->
+	</div>
 
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-	<!-- KnobKnob by Martin Angelov : https://github.com/martinaglv/KnobKnob -->
 	<script src="js/transform.js?v=2024081101"></script>
 	<script src="js/knobKnob.jquery.js?v=2024081101"></script>
 	<script src="js/loadingScreen.js?v=2024081101"></script>
-
 	<script type="text/javascript" src="js/jquery.cassette.js?v=2024081101"></script>
 	<script type="text/javascript" src="js/cassette-cdn-override.js?v=2024081101"></script>
+
 	<script type="text/javascript">
 		$(function () {
-			// Initialize the cassette player
 			$('#vc-container').cassette();
 
-
-
-			// Add touch event enhancements for mobile
 			if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
-				// Add haptic feedback simulation for button presses
 				$(document).on('touchstart', 'ul.vc-controls li, .vc-volume-wrap', function () {
 					$(this).addClass('touch-active');
 				});
@@ -112,38 +126,59 @@
 					}, 150);
 				});
 
-				// Prevent double-tap zoom on controls
 				$(document).on('touchend', 'ul.vc-controls li', function (e) {
 					e.preventDefault();
 				});
 			}
 
-			// Add vintage loading effect
 			$('.vc-loader').show();
 			setTimeout(function () {
 				$('.vc-loader').fadeOut(500);
 			}, 1500);
 
-			// Console log for debugging
 			console.log('🎵 Vintage Cassette Player initialized');
 			console.log('📱 Mobile optimizations active');
 		});
 	</script>
 
-	<!-- Add some additional mobile-specific styles -->
+	<!-- PWA Service Worker Registration -->
+	<script>
+		if ('serviceWorker' in navigator) {
+			window.addEventListener('load', () => {
+				navigator.serviceWorker.register('/sw.js')
+					.then(registration => {
+						console.log('✅ PWA: Service Worker registered', registration.scope);
+					})
+					.catch(error => {
+						console.error('❌ PWA: Service Worker registration failed', error);
+					});
+			});
+		}
+
+		// PWA Install prompt
+		let deferredPrompt;
+		window.addEventListener('beforeinstallprompt', (e) => {
+			e.preventDefault();
+			deferredPrompt = e;
+			console.log('💾 PWA: Install prompt available');
+		});
+
+		window.addEventListener('appinstalled', () => {
+			console.log('✅ PWA: App installed successfully');
+			deferredPrompt = null;
+		});
+	</script>
+
 	<style>
-		/* Touch feedback for mobile */
 		.touch-active {
 			transform: scale(0.95) !important;
 			transition: transform 0.1s ease !important;
 		}
 
-		/* Loading state improvements */
 		.vc-loader {
 			z-index: 100;
 		}
 
-		/* Mobile device specific adjustments */
 		.mobile-device .vc-container {
 			user-select: none;
 			-webkit-user-select: none;
@@ -154,7 +189,6 @@
 			box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 		}
 
-		/* Social media icons wrapper */
 		.social-wrapper {
 			display: flex;
 			justify-content: center;
@@ -192,7 +226,6 @@
 			transform: scale(0.95);
 		}
 
-		/* Cafecito button styling */
 		.cafecito-wrapper {
 			display: flex;
 			justify-content: center;
@@ -236,7 +269,6 @@
 			filter: saturate(0.9) contrast(1.1);
 		}
 
-		/* Desktop */
 		@media screen and (min-width: 769px) {
 			.social-wrapper {
 				padding: 70px 10px 40px 10px;
@@ -260,7 +292,6 @@
 			}
 		}
 
-		/* Landscape optimizations */
 		@media screen and (max-width: 768px) and (orientation: landscape) {
 			.social-wrapper {
 				padding: 50px 10px 25px 10px;
@@ -284,7 +315,6 @@
 			}
 		}
 
-		/* Mobile portrait optimizations */
 		@media screen and (max-width: 480px) {
 			.social-wrapper {
 				gap: 15px;

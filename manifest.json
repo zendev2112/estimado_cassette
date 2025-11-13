@@ -1,0 +1,25 @@
+{
+  "name": "ESTIMADO MATÍAS - PEUGEOT 504",
+  "short_name": "PEUGEOT 504",
+  "description": "Vintage Cassette Player tribute to PEUGEOT 504. Interactive HTML5 audio player with realistic retro controls.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#2a1810",
+  "theme_color": "#d4a574",
+  "icons": [
+    {
+      "src": "images/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "images/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
