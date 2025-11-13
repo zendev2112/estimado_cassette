@@ -21,21 +21,5 @@
       "type": "image/png",
       "purpose": "any maskable"
     }
-  ],
-  "screenshots": [
-    {
-      "src": "images/P504.webp",
-      "sizes": "540x720",
-      "type": "image/webp",
-      "form_factor": "narrow",
-      "purpose": "any"
-    },
-    {
-      "src": "images/P504.png",
-      "sizes": "540x720",
-      "type": "image/png",
-      "form_factor": "narrow",
-      "purpose": "any"
-    }
   ]
 }
