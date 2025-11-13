@@ -206,18 +206,7 @@
 			});
 		}
 
-		// PWA Install prompt
-		let deferredPrompt;
-		window.addEventListener('beforeinstallprompt', (e) => {
-			e.preventDefault();
-			deferredPrompt = e;
-			console.log('💾 PWA: Install prompt available');
-		});
 
-		window.addEventListener('appinstalled', () => {
-			console.log('✅ PWA: App installed successfully');
-			deferredPrompt = null;
-		});
 	</script>
 
 	<style>
@@ -742,6 +731,15 @@
 	</style>
 
 	<script>
+		let deferredPrompt;
+
+		// Capture the beforeinstallprompt event
+		window.addEventListener('beforeinstallprompt', (e) => {
+			e.preventDefault();
+			deferredPrompt = e;
+			console.log('💾 PWA: Install prompt available');
+		});
+
 		// Show install banner after 3 seconds
 		setTimeout(() => {
 			const banner = document.querySelector('.install-banner');
@@ -751,12 +749,33 @@
 		}, 3000);
 
 		// Close button functionality
-		document.querySelector('.install-close').addEventListener('click', function () {
+		document.querySelector('.install-close').addEventListener('click', function (e) {
+			e.preventDefault();
+			e.stopPropagation();
 			const banner = document.querySelector('.install-banner');
 			banner.classList.add('hidden');
 			setTimeout(() => {
 				banner.style.display = 'none';
 			}, 500);
+		});
+
+		// Banner click - TRIGGER INSTALL
+		document.querySelector('.install-banner-content').addEventListener('click', function (e) {
+			if (e.target.closest('.install-close')) return;
+
+			if (deferredPrompt) {
+				deferredPrompt.prompt();
+				deferredPrompt.userChoice.then((choiceResult) => {
+					if (choiceResult.outcome === 'accepted') {
+						console.log('✅ PWA: User accepted install');
+						const banner = document.querySelector('.install-banner');
+						banner.classList.add('hidden');
+					} else {
+						console.log('❌ PWA: User declined install');
+					}
+					deferredPrompt = null;
+				});
+			}
 		});
 
 		// Hide banner after 8 seconds automatically
@@ -769,6 +788,15 @@
 				}, 500);
 			}
 		}, 8000);
+
+		// Show install banner again when app is installed
+		window.addEventListener('appinstalled', () => {
+			console.log('✅ PWA: App installed successfully');
+			const banner = document.querySelector('.install-banner');
+			if (banner) {
+				banner.classList.add('hidden');
+			}
+		});
 	</script>
 </body>
 
