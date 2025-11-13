@@ -375,8 +375,8 @@
 		}
 
 		.cafecito-car-icon img {
-			max-width: 90%;
-			max-height: 90%;
+			max-width: 95%;
+			max-height: 95%;
 			width: auto;
 			height: auto;
 			display: block;
@@ -586,9 +586,6 @@
 			e.stopPropagation();
 			$(this).addClass('clicked');
 
-			// Open cafecito link immediately
-			window.open('https://cafecito.app/zetade', '_blank');
-
 			// Revert back to car button after 5 seconds
 			setTimeout(() => {
 				$('.cafecito-link').removeClass('clicked');
@@ -600,9 +597,6 @@
 			e.preventDefault();
 			e.stopPropagation();
 			$('.cafecito-link').addClass('clicked');
-
-			// Open cafecito link immediately
-			window.open('https://cafecito.app/zetade', '_blank');
 
 			// Revert back to car button after 5 seconds
 			setTimeout(() => {
