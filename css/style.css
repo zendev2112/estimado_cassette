@@ -664,3 +664,99 @@ h2 {
 		background-attachment: fixed;
 	}
 }
+
+/* ========================================
+   PWA LANDSCAPE FIX - FINAL OVERRIDE
+   ======================================== */
+
+@media screen and (orientation: landscape) {
+
+	/* Force body to be scrollable */
+	html,
+	body {
+		height: auto !important;
+		min-height: 100vh !important;
+		overflow-y: auto !important;
+		overflow-x: hidden !important;
+		position: relative !important;
+	}
+
+	/* Make container flexible */
+	.container {
+		height: auto !important;
+		min-height: 100vh !important;
+		position: relative !important;
+		display: block !important;
+		overflow: visible !important;
+		padding-bottom: 150px !important;
+		/* Space for controls */
+	}
+
+	/* Fix cassette container */
+	.vc-container {
+		position: relative !important;
+		height: auto !important;
+		min-height: auto !important;
+		margin-bottom: 120px !important;
+		/* Space for controls */
+	}
+
+	/* CRITICAL: Change controls from absolute to relative */
+	ul.vc-controls {
+		position: relative !important;
+		bottom: auto !important;
+		left: auto !important;
+		transform: none !important;
+		margin: 20px auto 0 auto !important;
+		width: 85% !important;
+		max-width: 500px !important;
+	}
+}
+
+/* Extra small landscape (PWA specific) */
+@media screen and (orientation: landscape) and (max-height: 500px) {
+	.container {
+		padding-bottom: 100px !important;
+	}
+
+	.vc-container {
+		transform: scale(0.75) !important;
+		margin-bottom: 80px !important;
+	}
+
+	ul.vc-controls {
+		height: 40px !important;
+		padding: 5px !important;
+		margin-top: 10px !important;
+	}
+
+	ul.vc-controls li {
+		height: 35px !important;
+		line-height: 35px !important;
+		min-width: 40px !important;
+	}
+
+	ul.vc-controls li span:before {
+		font-size: 14px !important;
+	}
+
+	.social-wrapper {
+		padding: 15px 10px 10px 10px !important;
+		gap: 10px !important;
+	}
+
+	.social-link {
+		width: 35px !important;
+		height: 35px !important;
+		font-size: 16px !important;
+	}
+
+	.cafecito-wrapper {
+		padding: 10px !important;
+		margin-top: 10px !important;
+	}
+
+	.cafecito-link {
+		max-width: 120px !important;
+	}
+}
