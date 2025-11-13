@@ -623,37 +623,31 @@
 		}
 	</style>
 	<script>
-		// Handle click/tap to reveal cafecito button and redirect immediately
+		// Handle click/tap car overlay - ONLY reveal button, NO redirect
 		$('.cafecito-link').on('click', function (e) {
 			e.preventDefault();
 			e.stopPropagation();
 			$(this).addClass('clicked');
 
-			// Open cafecito link IMMEDIATELY
-			window.open('https://cafecito.app/zetade', '_blank');
-
 			// Revert back to car button after 5 seconds
 			setTimeout(() => {
 				$('.cafecito-link').removeClass('clicked');
 			}, 5000);
 		});
 
-		// Mobile touch handler
+		// Mobile touch handler on car overlay - ONLY reveal button, NO redirect
 		$('.cafecito-car-overlay').on('touchend', function (e) {
 			e.preventDefault();
 			e.stopPropagation();
 			$('.cafecito-link').addClass('clicked');
 
-			// Open cafecito link IMMEDIATELY
-			window.open('https://cafecito.app/zetade', '_blank');
-
 			// Revert back to car button after 5 seconds
 			setTimeout(() => {
 				$('.cafecito-link').removeClass('clicked');
 			}, 5000);
 		});
 
-		// Click cafecito button image to redirect
+		// Click cafecito button image - ONLY THIS REDIRECTS
 		$('.cafecito-button-img').on('click', function (e) {
 			e.preventDefault();
 			e.stopPropagation();
