@@ -654,6 +654,122 @@
 			window.open('https://cafecito.app/zetade', '_blank');
 		});
 	</script>
+	<!-- Add this before closing </body> tag -->
+
+	<div class="install-banner">
+		<div class="install-banner-content">
+			<span class="install-icon">📱</span>
+			<span class="install-text">Add to Home Screen</span>
+			<button class="install-close">✕</button>
+		</div>
+	</div>
+
+	<style>
+		/* Install banner styles */
+		.install-banner {
+			position: fixed;
+			bottom: 20px;
+			left: 50%;
+			transform: translateX(-50%) translateY(150px);
+			background: linear-gradient(135deg, #d4a574 0%, #8b6914 100%);
+			border-radius: 50px;
+			padding: 12px 20px;
+			box-shadow: 0 4px 12px rgba(139, 105, 20, 0.5);
+			z-index: 999;
+			animation: slide-up 0.5s ease forwards;
+			max-width: 90%;
+			width: 100%;
+			box-sizing: border-box;
+		}
+
+		@keyframes slide-up {
+			to {
+				transform: translateX(-50%) translateY(0);
+			}
+		}
+
+		.install-banner-content {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			gap: 10px;
+			font-family: 'Aldrich', sans-serif;
+			color: #fff;
+			font-size: 14px;
+		}
+
+		.install-icon {
+			font-size: 18px;
+			animation: bounce 2s infinite;
+		}
+
+		@keyframes bounce {
+
+			0%,
+			100% {
+				transform: translateY(0);
+			}
+
+			50% {
+				transform: translateY(-5px);
+			}
+		}
+
+		.install-close {
+			background: none;
+			border: none;
+			color: #fff;
+			font-size: 16px;
+			cursor: pointer;
+			padding: 0;
+			margin-left: 10px;
+			transition: transform 0.2s ease;
+		}
+
+		.install-close:hover {
+			transform: scale(1.2);
+		}
+
+		.install-banner.hidden {
+			animation: slide-down 0.5s ease forwards;
+		}
+
+		@keyframes slide-down {
+			to {
+				transform: translateX(-50%) translateY(150px);
+			}
+		}
+	</style>
+
+	<script>
+		// Show install banner after 3 seconds
+		setTimeout(() => {
+			const banner = document.querySelector('.install-banner');
+			if (banner && !banner.classList.contains('hidden')) {
+				banner.style.display = 'block';
+			}
+		}, 3000);
+
+		// Close button functionality
+		document.querySelector('.install-close').addEventListener('click', function () {
+			const banner = document.querySelector('.install-banner');
+			banner.classList.add('hidden');
+			setTimeout(() => {
+				banner.style.display = 'none';
+			}, 500);
+		});
+
+		// Hide banner after 8 seconds automatically
+		setTimeout(() => {
+			const banner = document.querySelector('.install-banner');
+			if (banner && !banner.classList.contains('hidden')) {
+				banner.classList.add('hidden');
+				setTimeout(() => {
+					banner.style.display = 'none';
+				}, 500);
+			}
+		}, 8000);
+	</script>
 </body>
 
 </html>
