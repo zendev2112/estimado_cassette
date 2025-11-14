@@ -396,19 +396,18 @@
 		}
 
 		.car-glow {
-			filter: drop-shadow(0 0 8px rgba(174, 228, 250, 0.5)) drop-shadow(0 0 12px rgba(174, 228, 250, 0.3)) brightness(1.1);
-			animation: glow-pulse 3s ease-in-out infinite;
+			animation: subtle-zoom 2s ease-in-out infinite;
 		}
 
-		@keyframes glow-pulse {
+		@keyframes subtle-zoom {
 
 			0%,
 			100% {
-				filter: drop-shadow(0 0 8px rgba(174, 228, 250, 0.5)) drop-shadow(0 0 12px rgba(174, 228, 250, 0.3)) brightness(1.1);
+				transform: scale(1);
 			}
 
 			50% {
-				filter: drop-shadow(0 0 12px rgba(174, 228, 250, 0.7)) drop-shadow(0 0 18px rgba(174, 228, 250, 0.4)) brightness(1.15);
+				transform: scale(1.08);
 			}
 		}
 
@@ -744,9 +743,12 @@
 		setTimeout(() => {
 			const banner = document.querySelector('.install-banner');
 			if (banner && !banner.classList.contains('hidden')) {
-				banner.style.display = 'block';
+				banner.classList.add('hidden');
+				setTimeout(() => {
+					banner.style.display = 'none';
+				}, 500);
 			}
-		}, 3000);
+		}, 8000);
 
 		// Close button functionality
 		document.querySelector('.install-close').addEventListener('click', function (e) {
