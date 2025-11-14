@@ -85,6 +85,13 @@
 </head>
 
 <body>
+	<div class="install-banner">
+		<div class="install-banner-content">
+			<span class="install-icon">📱</span>
+			<span class="install-text">Add to Home Screen</span>
+			<button class="install-close">✕</button>
+		</div>
+	</div>
 	<div class="container">
 		<header></header>
 
@@ -644,13 +651,7 @@
 	</script>
 	<!-- Add this before closing </body> tag -->
 
-	<div class="install-banner">
-		<div class="install-banner-content">
-			<span class="install-icon">📱</span>
-			<span class="install-text">Add to Home Screen</span>
-			<button class="install-close">✕</button>
-		</div>
-	</div>
+
 
 	<style>
 		/* Install banner styles */
@@ -743,12 +744,9 @@
 		setTimeout(() => {
 			const banner = document.querySelector('.install-banner');
 			if (banner && !banner.classList.contains('hidden')) {
-				banner.classList.add('hidden');
-				setTimeout(() => {
-					banner.style.display = 'none';
-				}, 500);
+				banner.style.display = 'block';
 			}
-		}, 8000);
+		}, 3000);
 
 		// Close button functionality
 		document.querySelector('.install-close').addEventListener('click', function (e) {
@@ -780,7 +778,7 @@
 			}
 		});
 
-		// Hide banner after 8 seconds automatically
+		// Hide banner after 20 seconds automatically (LONGER)
 		setTimeout(() => {
 			const banner = document.querySelector('.install-banner');
 			if (banner && !banner.classList.contains('hidden')) {
@@ -789,7 +787,7 @@
 					banner.style.display = 'none';
 				}, 500);
 			}
-		}, 8000);
+		}, 20000);
 
 		// Show install banner again when app is installed
 		window.addEventListener('appinstalled', () => {
